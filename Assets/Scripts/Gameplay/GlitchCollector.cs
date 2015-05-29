@@ -3,9 +3,9 @@ using System.Collections;
 
 public class GlitchCollector : MonoBehaviour {
 
-    private WorldGlitch selectedWorldGlitch;
+    public static WorldGlitch selectedWorldGlitch;
     private PlayerGlitch selectedPlayerGlitch;
-    private GameObject selectedWorldGlitchGameObject;
+    public static GameObject selectedWorldGlitchGameObject;
     private GameObject selectedPlayerGlitchGameObject;
     public Transform playerGlitchSpawnPoint;
 
@@ -43,6 +43,7 @@ public class GlitchCollector : MonoBehaviour {
 
     private void CollectGlitch(Glitch glitch)
     {
+        glitch.Execute(this.gameObject);
         if(glitch is PlayerGlitch)
         {
             selectedPlayerGlitch = glitch as PlayerGlitch;
