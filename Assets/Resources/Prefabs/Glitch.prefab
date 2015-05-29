@@ -12,8 +12,8 @@ GameObject:
   - 23: {fileID: 2312722}
   - 61: {fileID: 6164408}
   m_Layer: 0
-  m_Name: PlayerGlitch
-  m_TagString: PlayerGlitch
+  m_Name: Glitch
+  m_TagString: Glitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
