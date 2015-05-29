@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerGlitchMock : MonoBehaviour {
+public class PlayerGlitchMock : GlitchMock {
 
 	// Use this for initialization
 	void Start () {

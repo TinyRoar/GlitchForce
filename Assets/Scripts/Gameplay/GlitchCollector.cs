@@ -25,4 +25,27 @@ public class GlitchCollector : MonoBehaviour {
     {
 
     }
+
+    private void DropLastGlitch()
+    {
+        if(lastSelectedGlitch is PlayerGlitchMock)
+        {
+
+        }
+
+        else
+        {
+
+        }
+    }
+
+    private void DropPlayerGlitch()
+    {
+
+    }
+
+    private void DropGlobalGlitch()
+    {
+
+    }
 }
