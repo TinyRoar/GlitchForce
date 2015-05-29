@@ -22,7 +22,7 @@ public class GlitchCollector : MonoBehaviour {
             Debug.Log(lastSelectedGlitchGameObject);
             if (selectedGlitch != null)
             {
-                if (selectedGlitch is PlayerGlitchMock)
+                if (selectedGlitch is Glitch)
                 {
                     DropPlayerGlitch(other.transform.position);
                     lastSelectedGlitchGameObject = other.gameObject.name;

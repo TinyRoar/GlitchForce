@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerGlitchMock : GlitchMock {
+public class PlayerGlitch : Glitch
+{
 
 	// Use this for initialization
 	void Start () {
@@ -12,4 +13,5 @@ public class PlayerGlitchMock : GlitchMock {
 	void Update () {
 	
 	}
+
 }
