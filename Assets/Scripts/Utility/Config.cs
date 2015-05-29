@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Config : MonoBehaviour
+public class Config : Singleton<Config>
 {
 
     private static Config _instance;
