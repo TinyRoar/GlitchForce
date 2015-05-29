@@ -3,15 +3,26 @@ using System.Collections;
 
 public class PlayerGlitch : Glitch
 {
+    public enum PlayerGlitchType
+    {
+        None,
+        PlayerGravity,
+        PlayerJump
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public PlayerGlitchType CurrentType = PlayerGlitchType.None;
+
+    public override void Execute(GameObject player)
+    {
+        switch (CurrentType)
+        {
+            case PlayerGlitchType.PlayerGravity:
+                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                break;
+            case PlayerGlitchType.PlayerJump:
+                //player.GetComponent<Movement>().DoGlitchJump();
+                break;
+        }
+    }
 
 }
