@@ -15,6 +15,7 @@ public class Config : Singleton<Config>
     }
 
     public float Speed = 2.0f;
+    public int CurrentSceneID = 0;
 
 
 }
