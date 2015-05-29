@@ -21,7 +21,7 @@ public class GlitchCollector : MonoBehaviour {
         {
             if (selectedGlitch != null)
             {
-                if (selectedGlitch is PlayerGlitchMock && other.GetComponent<GlitchMock>() is PlayerGlitchMock)
+                if (selectedGlitch is Glitch && other.GetComponent<GlitchMock>() is Glitch)
                 {
                     DropPlayerGlitch();
                 }
