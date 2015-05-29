@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class Updater : MonoBehaviour
+public class Updater : Singleton<Updater>
 {
 
     private static Updater _instance;
