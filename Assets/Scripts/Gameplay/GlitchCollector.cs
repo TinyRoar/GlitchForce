@@ -2,9 +2,11 @@
 using System.Collections;
 
 public class GlitchCollector : MonoBehaviour {
-    
-    private GlitchMock selectedGlitch;
-    private GameObject selectedGlitchGameObject;
+
+    public static WorldGlitch selectedWorldGlitch;
+    private PlayerGlitch selectedPlayerGlitch;
+    public static GameObject selectedWorldGlitchGameObject;
+    private GameObject selectedPlayerGlitchGameObject;
     public Transform playerGlitchSpawnPoint;
 
 	// Use this for initialization
@@ -19,36 +21,51 @@ public class GlitchCollector : MonoBehaviour {
     {
         if (other.tag == "Glitch")
         {
-            if (selectedGlitch != null)
+            if(other.GetComponent<Glitch>() is PlayerGlitch)
             {
-                if (selectedGlitch is Glitch && other.GetComponent<GlitchMock>() is Glitch)
+                if(selectedPlayerGlitch != null)
                 {
                     DropPlayerGlitch();
                 }
-                else if(other.GetComponent<GlitchMock>() is GlobalGlitchMock)
+            }
+
+            else
+            {
+                if(selectedWorldGlitch != null)
                 {
-                    DropGlobalGlitch();
+                    DropWorldGlitch();
                 }
             }
-            CollectGlitch(other.GetComponent<GlitchMock>());
+
+            CollectGlitch(other.GetComponent<Glitch>());
         }
     }
 
-    private void CollectGlitch(GlitchMock mock)
+    private void CollectGlitch(Glitch glitch)
     {
-        selectedGlitch = mock;
-        mock.gameObject.SetActive(false);
-        selectedGlitchGameObject = mock.gameObject;
+        glitch.Execute(this.gameObject);
+        if(glitch is PlayerGlitch)
+        {
+            selectedPlayerGlitch = glitch as PlayerGlitch;
+            selectedPlayerGlitchGameObject = glitch.gameObject;
+        }
+
+        else
+        {
+            selectedWorldGlitch = glitch as WorldGlitch;
+            selectedWorldGlitchGameObject = glitch.gameObject;
+        }
+        glitch.gameObject.SetActive(false);
     }
 
     private void DropPlayerGlitch()
     {
-        selectedGlitchGameObject.SetActive(true);
-        selectedGlitchGameObject.transform.position = playerGlitchSpawnPoint.position;
+        selectedPlayerGlitchGameObject.SetActive(true);
+        selectedPlayerGlitchGameObject.transform.position = playerGlitchSpawnPoint.position;
     }
 
-    private void DropGlobalGlitch()
+    private void DropWorldGlitch()
     {
-        selectedGlitchGameObject.SetActive(true);
+        selectedWorldGlitchGameObject.SetActive(true);
     }
 }
