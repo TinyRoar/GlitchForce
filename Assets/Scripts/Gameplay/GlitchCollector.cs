@@ -5,7 +5,7 @@ public class GlitchCollector : MonoBehaviour {
     
     private GlitchMock selectedGlitch;
     private GameObject selectedGlitchGameObject;
-    private string lastSelectedGlitchGameObject = "";
+    public Transform playerGlitchSpawnPoint;
 
 	// Use this for initialization
 	void Start () {
@@ -17,31 +17,20 @@ public class GlitchCollector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Glitch" && lastSelectedGlitchGameObject == "")
+        if (other.tag == "Glitch")
         {
-            Debug.Log(lastSelectedGlitchGameObject);
             if (selectedGlitch != null)
             {
-                if (selectedGlitch is PlayerGlitchMock)
+                if (selectedGlitch is PlayerGlitchMock && other.GetComponent<GlitchMock>() is PlayerGlitchMock)
                 {
-                    DropPlayerGlitch(other.transform.position);
-                    lastSelectedGlitchGameObject = other.gameObject.name;
+                    DropPlayerGlitch();
                 }
-                else
+                else if(other.GetComponent<GlitchMock>() is GlobalGlitchMock)
                 {
                     DropGlobalGlitch();
                 }
             }
             CollectGlitch(other.GetComponent<GlitchMock>());
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Glitch")
-        {
-            Debug.Log("Exit");
-            lastSelectedGlitchGameObject = "";
         }
     }
 
@@ -52,10 +41,10 @@ public class GlitchCollector : MonoBehaviour {
         selectedGlitchGameObject = mock.gameObject;
     }
 
-    private void DropPlayerGlitch(Vector3 position)
+    private void DropPlayerGlitch()
     {
         selectedGlitchGameObject.SetActive(true);
-        selectedGlitchGameObject.transform.position = position;
+        selectedGlitchGameObject.transform.position = playerGlitchSpawnPoint.position;
     }
 
     private void DropGlobalGlitch()
