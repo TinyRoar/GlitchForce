@@ -4,39 +4,40 @@ using System.Collections;
 public class SceneFinish : MonoBehaviour
 {
 
-    public static int playerInFinisher = 0;
-    public static int playerCount = 2;
+    private int playerInFinisher = 0;
+    private int playerCount = 1;
 
 	// Use this for initialization
 	void Start () {
 	
-
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "SceneFinish")
+        if (other.tag == "Player")
         {
-            SceneFinish.playerInFinisher++;
+            this.playerInFinisher++;
             Debug.Log("Player go in Finish");
+            this.CheckFinish();
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "SceneFinish")
+        if (other.tag == "Player")
         {
-            SceneFinish.playerInFinisher--;
+            this.playerInFinisher--;
             Debug.Log("Player leave in Finish");
+            this.CheckFinish();
         }
     }
 
     private void CheckFinish()
     {
-        if (SceneFinish.playerInFinisher >= SceneFinish.playerCount)
+        if (this.playerInFinisher >= this.playerCount)
         {
-            Config.Instance.CurrentSceneID++;
-            Application.LoadLevel(Config.Instance.CurrentSceneID);
+            SceneCrossConfig.Instance.CurrentSceneID++;
+            Application.LoadLevel(SceneCrossConfig.Instance.CurrentSceneID);
         }
     }
 
