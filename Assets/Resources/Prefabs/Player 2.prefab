@@ -1654,7 +1654,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .910000026}
   serializedVersion: 2
-  m_Size: {x: 1.41999996, y: 2}
+  m_Size: {x: 1.41999996, y: 2.5}
 --- !u!61 &6176304
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1736,6 +1736,8 @@ MonoBehaviour:
   CurrentDirection: 1
   CurrentState: 0
   isInvincible: 0
+  isTurning: 0
+  turningSpeed: 50
 --- !u!137 &13710822
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
