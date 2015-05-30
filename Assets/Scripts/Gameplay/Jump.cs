@@ -20,6 +20,7 @@ public class Jump : MonoBehaviour
 
         jumpHeight = Config.Instance.JumpHeight;
         jumpWidth = Config.Instance.JumpWidth;
+		defaultTime = Config.Instance.JumpSpeed;
     }
 
     // Update is called once per frame

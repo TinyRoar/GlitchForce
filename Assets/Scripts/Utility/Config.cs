@@ -21,6 +21,7 @@ public class Config : Singleton<Config>
     public float JumpWidth = 5.0f;
     public float JumpGlitchHeight = 20.0f;
     public float JumpGlitchWidth = 8.0f;
+	public float JumpSpeed = 8.0f;
 
     // Internal stuff
     public enum Direction

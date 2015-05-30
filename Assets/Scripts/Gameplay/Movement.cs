@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Spieler 1
-        if (Input.GetKey(KeyCode.A) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player1)
+        if (Input.GetKey(KeyCode.A) && player.ThisPlayer == Player.PlayerID.Player1)
         {
             lastPosition = transform.position;
             transform.position -= new Vector3(speed * (speedGlitchActive ?  glitchSpeed : 1), 0, 0) * Time.deltaTime;
@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
         }
 
-        if (Input.GetKey(KeyCode.D) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player1)
+        if (Input.GetKey(KeyCode.D) && player.ThisPlayer == Player.PlayerID.Player1)
         {
             lastPosition = transform.position;
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
         }
 
         // Spieler 2
-        if (Input.GetKey(KeyCode.LeftArrow) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player2)
+        if (Input.GetKey(KeyCode.LeftArrow) && player.ThisPlayer == Player.PlayerID.Player2)
         {
             lastPosition = transform.position;
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player2)
+        if (Input.GetKey(KeyCode.RightArrow) && player.ThisPlayer == Player.PlayerID.Player2)
         {
             lastPosition = transform.position;
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
