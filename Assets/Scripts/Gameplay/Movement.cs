@@ -114,7 +114,8 @@ public class Movement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         groundedCount++;
-        this.player.Hero.Play("Idle");
+        if (IsMoving == false)
+            this.player.Hero.Play("Idle");
         if (player.CurrentState == Config.State.Falling)
             player.CurrentState = Config.State.Standing;
     }
