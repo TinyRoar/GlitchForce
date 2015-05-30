@@ -35,6 +35,7 @@ public class PlayerGlitch : Glitch
                 player.GetComponent<Movement>().StartAutoMove();
                 break;
             case PlayerGlitchType.Invincible:
+                player.GetComponent<Player>().isInvincible = true;
                 break;
         }
     }
@@ -56,6 +57,7 @@ public class PlayerGlitch : Glitch
                 player.GetComponent<Movement>().StopAutoMove();
                 break;
             case PlayerGlitchType.Invincible:
+                player.GetComponent<Player>().isInvincible = false;
                 break;
         }
     }
