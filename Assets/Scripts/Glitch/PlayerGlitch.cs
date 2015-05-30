@@ -6,9 +6,13 @@ public class PlayerGlitch : Glitch
     public enum PlayerGlitchType
     {
         None,
-        PlayerGravity,
-        PlayerJump,
-        PlayerSpeed
+        Gravity,
+        Jump,
+        Speed,
+        Duplicate,
+        AutoMove,
+        Invincible,
+        Invisible,
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
@@ -17,14 +21,22 @@ public class PlayerGlitch : Glitch
     {
         switch (CurrentType)
         {
-            case PlayerGlitchType.PlayerGravity:
+            case PlayerGlitchType.Gravity:
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
-            case PlayerGlitchType.PlayerJump:
+            case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StartGlitchJump();
                 break;
-            case PlayerGlitchType.PlayerSpeed:
+            case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StartGlitchMovement();
+                break;
+            case PlayerGlitchType.Duplicate:
+                break;
+            case PlayerGlitchType.AutoMove:
+                break;
+            case PlayerGlitchType.Invincible:
+                break;
+            case PlayerGlitchType.Invisible:
                 break;
         }
     }
@@ -34,11 +46,19 @@ public class PlayerGlitch : Glitch
 
         switch (CurrentType)
         {
-            case PlayerGlitchType.PlayerJump:
+            case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StopGlitchJump();
                 break;
-            case PlayerGlitchType.PlayerSpeed:
+            case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StopGlitchMovement();
+                break;
+            case PlayerGlitchType.Duplicate:
+                break;
+            case PlayerGlitchType.AutoMove:
+                break;
+            case PlayerGlitchType.Invincible:
+                break;
+            case PlayerGlitchType.Invisible:
                 break;
         }
     }
