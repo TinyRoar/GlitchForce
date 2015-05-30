@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 480186}
   - 61: {fileID: 6191726}
+  - 114: {fileID: 11493694}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Switch
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.75, y: -2.19000006, z: 0}
+  m_LocalPosition: {x: 15.54, y: 4.36000013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465020}
@@ -102,6 +103,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &11493694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9edbe46932d8e4b860454e3be9745b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToDestroy: {fileID: 0}
+  CurrentSwitchState: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 427842}
   - 61: {fileID: 6148356}
   - 50: {fileID: 5098136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 452560}
   - 33: {fileID: 3329934}
   - 23: {fileID: 2377628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
