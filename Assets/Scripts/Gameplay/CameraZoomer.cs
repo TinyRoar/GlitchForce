@@ -20,11 +20,15 @@ public class CameraZoomer : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	public void ZoomCam (Movement movement) {
+
+    void Update()
+    {
         Vector2 middleVec = GetMiddleBewteenPlayers();
         transform.position = new Vector3(middleVec.x, transform.position.y, transform.position.z);
+    }
+
+	// Update is called once per frame
+	public void ZoomCam (Movement movement) {
         playersAreVisible = true;
         
         foreach(MeshRenderer renderer in borderRenderers)
