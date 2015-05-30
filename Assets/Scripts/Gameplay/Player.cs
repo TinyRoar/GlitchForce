@@ -55,7 +55,8 @@ public class Player : MonoBehaviour
             pos.z = 180;
             this.transform.eulerAngles = pos;
             
-            this.isTurning = false;
+			this.isTurning = false;
+			this.GetComponent<Jump>().AllowJumping = true;
             Updater.Instance.OnUpdate -= DoUpdate;
         }
     }
