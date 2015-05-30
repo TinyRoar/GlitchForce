@@ -8,6 +8,7 @@ TagManager:
   - PlayerGlitch
   - SceneFinish
   - Object
+  - DieArea
   layers:
   - Default
   - TransparentFX

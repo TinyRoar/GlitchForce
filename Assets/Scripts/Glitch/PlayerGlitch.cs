@@ -7,7 +7,8 @@ public class PlayerGlitch : Glitch
     {
         None,
         PlayerGravity,
-        PlayerJump
+        PlayerJump,
+        PlayerSpeed
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
@@ -26,6 +27,9 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.PlayerJump:
                 player.GetComponent<Jump>().StartGlitchJump();
                 break;
+            case PlayerGlitchType.PlayerSpeed:
+                player.GetComponent<Movement>().StartGlitchMovement();
+                break;
         }
     }
 
@@ -36,6 +40,9 @@ public class PlayerGlitch : Glitch
         {
             case PlayerGlitchType.PlayerJump:
                 player.GetComponent<Jump>().StopGlitchJump();
+                break;
+            case PlayerGlitchType.PlayerSpeed:
+                player.GetComponent<Movement>().StopGlitchMovement();
                 break;
         }
     }

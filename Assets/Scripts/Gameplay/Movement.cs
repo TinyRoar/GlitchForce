@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 
     private float speed;
     private Player player;
+    private bool speedGlitchActive;
+    private float glitchSpeed = 3;
 
     // Use this for initialization
     void Start()
@@ -20,7 +22,7 @@ public class Movement : MonoBehaviour
         //Spieler 1
         if (Input.GetKey(KeyCode.A) && player.ThisPlayer == Player.PlayerID.Player1)
         {
-            transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
+            transform.position -= new Vector3(speed * (speedGlitchActive ?  glitchSpeed : 1), 0, 0) * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.D) && player.ThisPlayer == Player.PlayerID.Player1)
@@ -38,5 +40,15 @@ public class Movement : MonoBehaviour
         {
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
         }
+    }
+
+    internal void StartGlitchMovement()
+    {
+        speedGlitchActive = true;
+    }
+
+    internal void StopGlitchMovement()
+    {
+        speedGlitchActive = false;
     }
 }
