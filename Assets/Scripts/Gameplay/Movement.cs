@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
 
     private bool IsAutoMoving = false;
 
+    private bool IsMoving = false;
+
     // Use this for initialization
     void Start()
     {
@@ -24,26 +26,28 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Spieler 1
         if (
-                (
-                    (Input.GetKey(KeyCode.A) && IsAutoMoving == false)
-                    && player.ThisPlayer == Player.PlayerID.Player1
+            (
+                (Input.GetKey(KeyCode.A) && IsAutoMoving == false)
+                && player.ThisPlayer == Player.PlayerID.Player1
                 )
             ||
-                (
-                    (Input.GetKey(KeyCode.LeftArrow) && IsAutoMoving == false)
-                    && player.ThisPlayer == Player.PlayerID.Player2
+            (
+                (Input.GetKey(KeyCode.LeftArrow) && IsAutoMoving == false)
+                && player.ThisPlayer == Player.PlayerID.Player2
                 )
             )
         {
             lastPosition = transform.position;
-            transform.position -= new Vector3(speed * (speedGlitchActive ?  glitchSpeed : 1), 0, 0) * Time.deltaTime;
+            transform.position -= new Vector3(speed*(speedGlitchActive ? glitchSpeed : 1), 0, 0)*Time.deltaTime;
             player.CurrentDirection = Config.Direction.Left;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
+            this.player.Hero.Play("Run");
+            IsMoving = true;
         }
-
-        if (
+        else if (
                 (
                     (Input.GetKey(KeyCode.D) || IsAutoMoving == true)
                     && player.ThisPlayer == Player.PlayerID.Player1
@@ -59,6 +63,14 @@ public class Movement : MonoBehaviour
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
             player.CurrentDirection = Config.Direction.Right;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
+            this.player.Hero.Play("Run");
+            IsMoving = true;
+        }
+        // Moving was last frame, but was stopped this Frame
+        else if (IsMoving == true)
+        {
+            this.player.Hero.Play("Idle");
+            IsMoving = false;
         }
     }
 
