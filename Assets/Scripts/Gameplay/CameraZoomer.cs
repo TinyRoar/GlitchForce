@@ -47,7 +47,6 @@ public class CameraZoomer : MonoBehaviour {
             {
                 if (movement.player.transform.position.x < Camera.main.transform.position.x)
                 {
-                    Debug.Log("Correct");
                     movement.transform.position = movement.lastPosition;
                 }
             }
@@ -56,7 +55,6 @@ public class CameraZoomer : MonoBehaviour {
             {
                 if (movement.player.transform.position.x > Camera.main.transform.position.x)
                 {
-                    Debug.Log("Correct");
                     movement.transform.position = movement.lastPosition;
                 }
             }
