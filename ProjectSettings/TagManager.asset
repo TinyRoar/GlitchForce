@@ -10,6 +10,7 @@ TagManager:
   - Object
   - DieArea
   - Switch
+  - Wall
   layers:
   - Default
   - TransparentFX
