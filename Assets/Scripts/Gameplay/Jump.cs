@@ -9,11 +9,9 @@ public class Jump : MonoBehaviour
     private float jumpWidth;
     private Player player;
 
-    public enum State { standing, running, jumping }
-    private State currentState = State.standing;
-
     private float defaultTime = 1.0f;
     private float jumpTime;
+    private float gravity = 1;
 
     // Use this for initialization
     void Start()
@@ -29,12 +27,12 @@ public class Jump : MonoBehaviour
     {
         DoJump();
 
-        if (Input.GetKeyDown(KeyCode.Space) && currentState != State.jumping && player.ThisPlayer == Player.PlayerID.Player1)
+        if (Input.GetKeyDown(KeyCode.Space) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player1)
         {
             StartJump();
         }
 
-        if (Input.GetKeyDown(KeyCode.RightShift) && currentState != State.jumping && player.ThisPlayer == Player.PlayerID.Player2)
+        if (Input.GetKeyDown(KeyCode.RightShift) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player2)
         {
             StartJump();
         }
@@ -43,41 +41,43 @@ public class Jump : MonoBehaviour
 
     private void StartJump()
     {
-        currentState = State.jumping;
+        player.CurrentState = Config.State.Jumping;
         jumpTime = defaultTime;
+        gravity = this.GetComponent<Rigidbody2D>().gravityScale;
         this.GetComponent<Rigidbody2D>().gravityScale = 0;
     }
 
     private void StopJump()
     {
-        currentState = State.standing;
-        this.GetComponent<Rigidbody2D>().gravityScale = 1;
+        player.CurrentState = Config.State.Standing;
+        this.GetComponent<Rigidbody2D>().gravityScale = gravity;
     }
 
 
     private void DoJump()
     {
-        if (currentState != State.jumping)
+        if (player.CurrentState != Config.State.Jumping)
         { return; }
 
         jumpTime -= Time.deltaTime;
         Vector3 pos = this.transform.position;
 
-        pos.y += jumpHeight / 100.0f * jumpTime;
-        pos.x += jumpWidth / 10.0f * Time.deltaTime;
+        pos.y += jumpHeight / 100.0f * jumpTime * gravity;
+        pos.x += jumpWidth / 10.0f * Time.deltaTime * (int)player.CurrentDirection;
         this.transform.position = pos;
 
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (currentState == State.jumping)
-        StopJump();
+        if (player.CurrentState == Config.State.Jumping)
+        {
+            StopJump();
+        }
     }
 
     public void StartGlitchJump()
     {
-        Debug.Log("iuqvhhhebuia");
         jumpHeight = Config.Instance.JumpGlitchHeight;
         jumpWidth = Config.Instance.JumpGlitchWidth;
     }
