@@ -46,12 +46,14 @@ public class Jump : MonoBehaviour
         jumpTime = defaultTime;
         gravity = this.GetComponent<Rigidbody2D>().gravityScale;
         this.GetComponent<Rigidbody2D>().gravityScale = 0;
+        this.player.Hero.Play("JumpUp");
     }
 
     private void StopJump()
     {
         player.CurrentState = Config.State.Standing;
         this.GetComponent<Rigidbody2D>().gravityScale = gravity;
+        this.player.Hero.Play("JumpLand");
     }
 
 
