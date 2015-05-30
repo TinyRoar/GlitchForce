@@ -44,7 +44,8 @@ public class Movement : MonoBehaviour
             transform.position -= new Vector3(speed*(speedGlitchActive ? glitchSpeed : 1), 0, 0)*Time.deltaTime;
             player.CurrentDirection = Config.Direction.Left;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-            this.player.Hero.Play("Run");
+            if (player.CurrentState != Config.State.Jumping)
+                this.player.Hero.Play("Run");
             IsMoving = true;
         }
         else if (
@@ -63,13 +64,15 @@ public class Movement : MonoBehaviour
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
             player.CurrentDirection = Config.Direction.Right;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-            this.player.Hero.Play("Run");
+            if(player.CurrentState != Config.State.Jumping)
+                this.player.Hero.Play("Run");
             IsMoving = true;
         }
         // Moving was last frame, but was stopped this Frame
         else if (IsMoving == true)
         {
-            this.player.Hero.Play("Idle");
+            if (player.CurrentState != Config.State.Jumping)
+                this.player.Hero.Play("Idle");
             IsMoving = false;
         }
     }
