@@ -16,5 +16,10 @@ public class Config : Singleton<Config>
 
     public float Speed = 2.0f;
 
+    public float JumpHeight = 10.0f;
+    public float JumpWidth = 5.0f;
+    public float JumpGlitchHeight = 20.0f;
+    public float JumpGlitchWidth = 8.0f;
+
 
 }

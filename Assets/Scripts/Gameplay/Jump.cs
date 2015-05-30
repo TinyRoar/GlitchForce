@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using UnityEngine;
 using System.Collections;
 
 public class Jump : MonoBehaviour
 {
 
-    private float jumpHeight = 10.0f;
-    private float jumpWidth = 5.0f;
+    private float jumpHeight;
+    private float jumpWidth;
     private Player player;
 
     public enum State { standing, running, jumping }
@@ -19,6 +20,8 @@ public class Jump : MonoBehaviour
     {
         player = this.GetComponent<Player>();
 
+        jumpHeight = Config.Instance.JumpHeight;
+        jumpWidth = Config.Instance.JumpWidth;
     }
 
     // Update is called once per frame
@@ -64,6 +67,18 @@ public class Jump : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         StopJump();
+    }
+
+    public void StartGlitchJump()
+    {
+        jumpHeight = Config.Instance.JumpGlitchHeight;
+        jumpWidth = Config.Instance.JumpGlitchWidth;
+    }
+
+    public void StopGlitchJump()
+    {
+        jumpHeight = Config.Instance.JumpHeight;
+        jumpWidth = Config.Instance.JumpWidth;
     }
 
 }

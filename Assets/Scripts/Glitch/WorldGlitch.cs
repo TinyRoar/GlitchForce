@@ -25,4 +25,10 @@ public class WorldGlitch : Glitch
                 break;
         }
     }
+
+    public override void End(GameObject player)
+    {
+        
+    }
+
 }

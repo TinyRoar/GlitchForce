@@ -10,6 +10,7 @@ public abstract class Glitch : MonoBehaviour
 	}
 
     public abstract void Execute(GameObject player);
+    public abstract void End(GameObject player);
 
 
 
