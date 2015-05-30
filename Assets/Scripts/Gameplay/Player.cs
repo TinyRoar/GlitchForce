@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -13,24 +12,9 @@ public class Player : MonoBehaviour
 
     public PlayerID ThisPlayer;
 
-	void Start ()
-	{
-	    //Config.Instance.Speed
+    public Config.Direction CurrentDirection = Config.Direction.Right;
 
-	    Updater.Instance.OnUpdate += DoUpdate;
+    public Config.State CurrentState = Config.State.Standing;
 
-	    GameEvents.Instance.OnKeyUp += OnKeyUp;
-
-	}
-
-    void OnKeyUp(KeyCode key)
-    {
-        Debug.Log("key " + key.ToString() + " pressed");
-    }
-
-    void DoUpdate()
-    {
-        // Update
-    }
 
 }

@@ -8,6 +8,8 @@ TagManager:
   - PlayerGlitch
   - SceneFinish
   - Object
+  - DieArea
+  - Switch
   layers:
   - Default
   - TransparentFX
