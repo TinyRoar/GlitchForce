@@ -34,6 +34,11 @@ public class Jump : MonoBehaviour
             StartJump();
         }
 
+        if (Input.GetKeyDown(KeyCode.RightShift) && currentState != State.jumping && player.ThisPlayer == Player.PlayerID.Player2)
+        {
+            StartJump();
+        }
+
     }
 
     private void StartJump()

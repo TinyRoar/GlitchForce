@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
 
-    private float speed = 1.0f;
+    private float speed;
     private Player player;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         player = this.GetComponent<Player>();
-	
+        speed = Config.Instance.Speed;
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
 
-	    if(Input.GetKey(KeyCode.A) && player.ThisPlayer == Player.PlayerID.Player1)
+    // Update is called once per frame
+    void Update()
+    {
+        //Spieler 1
+        if (Input.GetKey(KeyCode.A) && player.ThisPlayer == Player.PlayerID.Player1)
         {
             transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
         }
@@ -27,6 +28,15 @@ public class Movement : MonoBehaviour {
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
         }
 
-        
-	}
+        //Spieler 2
+        if (Input.GetKey(KeyCode.LeftArrow) && player.ThisPlayer == Player.PlayerID.Player2)
+        {
+            transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) && player.ThisPlayer == Player.PlayerID.Player2)
+        {
+            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
+        }
+    }
 }
