@@ -8,7 +8,6 @@ public class WorldGlitch : Glitch
     {
         None,
         ObjectGravity,
-        RotorTime,
         BoxCollision
     }
 
@@ -24,9 +23,6 @@ public class WorldGlitch : Glitch
                 {
                     obj.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 }
-                break;
-
-            case WorldGlitchType.RotorTime:
                 break;
 
             case WorldGlitchType.BoxCollision:
