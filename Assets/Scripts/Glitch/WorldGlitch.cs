@@ -9,7 +9,7 @@ public class WorldGlitch : Glitch
         None,
         ObjectGravity,
         RotorTime,
-        KistenCollision
+        BoxCollision
     }
 
     public WorldGlitchType CurrentType = WorldGlitchType.None;
@@ -19,8 +19,8 @@ public class WorldGlitch : Glitch
         switch (CurrentType)
         {
             case WorldGlitchType.ObjectGravity:
-                GameObject[] objects = GameObject.FindGameObjectsWithTag("Object");
-                foreach (GameObject obj in objects)
+                GameObject[] gravityObjects = GameObject.FindGameObjectsWithTag("Object");
+                foreach (GameObject obj in gravityObjects)
                 {
                     obj.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 }
@@ -29,13 +29,32 @@ public class WorldGlitch : Glitch
             case WorldGlitchType.RotorTime:
                 break;
 
-            case WorldGlitchType.KistenCollision:
+            case WorldGlitchType.BoxCollision:
+                GameObject[] BoxCollisionObjects = GameObject.FindGameObjectsWithTag("Object");
+                foreach (GameObject obj in BoxCollisionObjects)
+                {
+                    obj.GetComponent<Rigidbody2D>().gravityScale = 0;
+                    obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                }
                 break;
         }
     }
 
     public override void End(GameObject player)
     {
+        switch (CurrentType)
+        {
+            case WorldGlitchType.ObjectGravity:
+                break;
+            case WorldGlitchType.BoxCollision:
+                GameObject[] BoxCollisionObjects = GameObject.FindGameObjectsWithTag("Object");
+                foreach (GameObject obj in BoxCollisionObjects)
+                {
+                    obj.GetComponent<Rigidbody2D>().gravityScale = 1;
+                    obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                }
+                break;
+        }
     }
 
 }
