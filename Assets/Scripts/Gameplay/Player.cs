@@ -16,5 +16,5 @@ public class Player : MonoBehaviour
 
     public Config.State CurrentState = Config.State.Standing;
 
-
+    public bool isInvincible = false;
 }

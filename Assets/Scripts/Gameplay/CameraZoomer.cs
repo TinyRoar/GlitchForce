@@ -43,7 +43,24 @@ public class CameraZoomer : MonoBehaviour {
 
         if(Camera.main.fieldOfView > maxFieldOfView)
         {
-            movement.transform.position = movement.lastPosition;
+            if(movement.player.CurrentDirection == Config.Direction.Left)
+            {
+                if (movement.player.transform.position.x < Camera.main.transform.position.x)
+                {
+                    Debug.Log("Correct");
+                    movement.transform.position = movement.lastPosition;
+                }
+            }
+
+            else if(movement.player.CurrentDirection == Config.Direction.Right)
+            {
+                if (movement.player.transform.position.x > Camera.main.transform.position.x)
+                {
+                    Debug.Log("Correct");
+                    movement.transform.position = movement.lastPosition;
+                }
+            }
+
         }
 
         if(playersAreVisible && Camera.main.fieldOfView > minimumFieldOfView)

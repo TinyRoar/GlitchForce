@@ -5,7 +5,8 @@ public class Movement : MonoBehaviour
 {
 
     private float speed;
-    private Player player;
+    [HideInInspector]
+    public Player player;
     private bool speedGlitchActive;
     private float glitchSpeed = 3;
     [HideInInspector]
