@@ -102,7 +102,6 @@ public class Movement : MonoBehaviour
     private int groundedCount = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Enter");
         groundedCount++;
         this.player.Hero.Play("Idle");
         if (player.CurrentState == Config.State.Falling)
@@ -110,13 +109,11 @@ public class Movement : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Exit");
         groundedCount--;
         if (groundedCount == 0)
         {
             if (player.CurrentState != Config.State.Jumping)
             {
-                Debug.Log("Fall Down");
                 player.CurrentState = Config.State.Falling;
                 this.player.Hero.Play("JumpFall");
             }
