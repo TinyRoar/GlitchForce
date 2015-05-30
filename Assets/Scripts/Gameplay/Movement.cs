@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public Vector3 lastPosition;
 
+    private bool IsAutoMoving = false;
+
     // Use this for initialization
     void Start()
     {
@@ -22,7 +24,17 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Spieler 1
-        if (Input.GetKey(KeyCode.A) && player.ThisPlayer == Player.PlayerID.Player1)
+        if (
+                (
+                    (Input.GetKey(KeyCode.A) && IsAutoMoving == false)
+                    && player.ThisPlayer == Player.PlayerID.Player1
+                )
+            ||
+                (
+                    (Input.GetKey(KeyCode.LeftArrow) && IsAutoMoving == false)
+                    && player.ThisPlayer == Player.PlayerID.Player2
+                )
+            )
         {
             lastPosition = transform.position;
             transform.position -= new Vector3(speed * (speedGlitchActive ?  glitchSpeed : 1), 0, 0) * Time.deltaTime;
@@ -30,24 +42,17 @@ public class Movement : MonoBehaviour
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
         }
 
-        if (Input.GetKey(KeyCode.D) && player.ThisPlayer == Player.PlayerID.Player1)
-        {
-            lastPosition = transform.position;
-            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
-            player.CurrentDirection = Config.Direction.Right;
-            Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-        }
-
-        // Spieler 2
-        if (Input.GetKey(KeyCode.LeftArrow) && player.ThisPlayer == Player.PlayerID.Player2)
-        {
-            lastPosition = transform.position;
-            transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
-            player.CurrentDirection = Config.Direction.Left;
-            Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) && player.ThisPlayer == Player.PlayerID.Player2)
+        if (
+                (
+                    (Input.GetKey(KeyCode.D) || IsAutoMoving == true)
+                    && player.ThisPlayer == Player.PlayerID.Player1
+                )
+            ||
+                (
+                    (Input.GetKey(KeyCode.RightArrow) || IsAutoMoving == true)
+                    && player.ThisPlayer == Player.PlayerID.Player2
+                )
+            )
         {
             lastPosition = transform.position;
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
@@ -65,4 +70,16 @@ public class Movement : MonoBehaviour
     {
         speedGlitchActive = false;
     }
+
+    // Glitch AutoMove
+    internal void StartAutoMove()
+    {
+        this.IsAutoMoving = true;
+    }
+
+    internal void StopAutoMove()
+    {
+        this.IsAutoMoving = false;
+    }
+
 }
