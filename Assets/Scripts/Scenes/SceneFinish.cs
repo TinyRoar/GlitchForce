@@ -5,7 +5,7 @@ public class SceneFinish : MonoBehaviour
 {
 
     private int playerInFinisher = 0;
-    private int playerCount = 2;
+    private int playerCount = 4;
 
 	// Use this for initialization
 	void Start () {

@@ -26,6 +26,7 @@ public class Switch : MonoBehaviour
 			{
 			case SwitchState.Destroy:
             	GameObject.Destroy(ObjectToDestroy);
+            	GameObject.Destroy(this.gameObject);
 				break;
 			case SwitchState.Visible:
 				ObjectToDestroy.SetActive(true);
