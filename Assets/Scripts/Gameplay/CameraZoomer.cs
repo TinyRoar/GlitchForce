@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class CameraZoomer : MonoBehaviour {
-    public Transform player1;
-    public Transform player2;
+    private Transform player1;
+    private Transform player2;
 
     public float maximumDistance;
 
-    public MeshRenderer[] borderRenderers;
+    private MeshRenderer[] borderRenderers = new MeshRenderer[4];
 
     public float minimumFieldOfView;
     public float maxFieldOfView;
@@ -18,7 +18,13 @@ public class CameraZoomer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        player1 = GameObject.Find("Player 1").transform;
+        player2 = GameObject.Find("Player 2").transform;
+
+        borderRenderers[0] = player1.FindChild("BorderRenderer").GetComponent<MeshRenderer>();
+        borderRenderers[1] = player1.FindChild("BorderRenderer 1").GetComponent<MeshRenderer>();
+        borderRenderers[2] = player2.FindChild("BorderRenderer").GetComponent<MeshRenderer>();
+        borderRenderers[3] = player2.FindChild("BorderRenderer 1").GetComponent<MeshRenderer>();
 	}
 
     void Update()
