@@ -16,6 +16,7 @@ public class PlayerGlitch : Glitch
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
+    public bool destroyOnDrop = true;
 
     public override void Execute(GameObject player)
     {
