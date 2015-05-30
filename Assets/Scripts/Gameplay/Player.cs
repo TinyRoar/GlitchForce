@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public bool isInvincible = false;
 
     public bool isTurning = false;
-    public float turningSpeed = 50.0f;
+    private float turningSpeed = 200.0f;
 
     public void DoFallingUpdate()
     {
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         else
         {
             this.transform.eulerAngles = new Vector3(0, this.transform.eulerAngles.y, 0);
+            this.transform.Rotate(0, 180, 0);
             Updater.Instance.OnUpdate -= DoFallingUpdate;
         }
     }

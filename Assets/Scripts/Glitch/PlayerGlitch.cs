@@ -49,15 +49,13 @@ public class PlayerGlitch : Glitch
         {
             case PlayerGlitchType.Gravity:
                 Updater.Instance.OnUpdate += player.GetComponent<Player>().DoFallingUpdate;
+                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StopGlitchJump();
                 break;
             case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StopGlitchMovement();
-                break;
-            case PlayerGlitchType.Gravity:
-                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
             case PlayerGlitchType.AutoMove:
                 player.GetComponent<Movement>().StopAutoMove();
