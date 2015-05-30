@@ -12,6 +12,7 @@ public class PlayerGlitch : Glitch
         Duplicate,
         AutoMove,
         Invincible,
+        Collision
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
@@ -20,9 +21,14 @@ public class PlayerGlitch : Glitch
     {
         switch (CurrentType)
         {
+            case PlayerGlitchType.Collision:
+                player.layer = LayerMask.NameToLayer("PlayerNoCollision");
+                break;
             case PlayerGlitchType.Gravity:
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                player.GetComponent<Player>().SignInUpdate();
                 break;
+
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StartGlitchJump();
                 break;
@@ -45,13 +51,18 @@ public class PlayerGlitch : Glitch
 
         switch (CurrentType)
         {
+            case PlayerGlitchType.Collision:
+                player.layer = LayerMask.NameToLayer("Player");
+                break;
+            case PlayerGlitchType.Gravity:
+                Updater.Instance.OnUpdate += player.GetComponent<Player>().DoFallingUpdate;
+                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                break;
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StopGlitchJump();
                 break;
             case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StopGlitchMovement();
-                break;
-            case PlayerGlitchType.Duplicate:
                 break;
             case PlayerGlitchType.AutoMove:
                 player.GetComponent<Movement>().StopAutoMove();

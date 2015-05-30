@@ -75,6 +75,17 @@ public class Movement : MonoBehaviour
                 this.player.Hero.Play("Idle");
             IsMoving = false;
         }
+
+        Debug.Log(player.CurrentDirection);
+        Debug.Log(player.LastDirection);
+
+        if(player.CurrentDirection != player.LastDirection)
+        {
+            Debug.Log("Rotated");
+            transform.Rotate(0, 180, 0);
+        }
+
+        player.LastDirection = player.CurrentDirection;
     }
 
     internal void StartGlitchMovement()
