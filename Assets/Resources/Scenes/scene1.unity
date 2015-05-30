@@ -138,6 +138,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11469566, guid: 355d602dad271e04696dd48130978d83, type: 2}
+      propertyPath: ThisPlayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 355d602dad271e04696dd48130978d83, type: 2}
   m_IsPrefabParent: 0
@@ -344,7 +348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469566, guid: 355d602dad271e04696dd48130978d83, type: 2}
       propertyPath: ThisPlayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 164840, guid: 355d602dad271e04696dd48130978d83, type: 2}
       propertyPath: m_Layer
@@ -465,7 +469,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 490770, guid: cb3719cb5a12ad04ebf95e5ff5d935bb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .519999981
+      value: -.629999995
       objectReference: {fileID: 0}
     - target: {fileID: 490770, guid: cb3719cb5a12ad04ebf95e5ff5d935bb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -763,7 +767,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 490770, guid: cb3719cb5a12ad04ebf95e5ff5d935bb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.55999994
+      value: 1.22000003
       objectReference: {fileID: 0}
     - target: {fileID: 490770, guid: cb3719cb5a12ad04ebf95e5ff5d935bb, type: 2}
       propertyPath: m_LocalPosition.y
@@ -816,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da8421682c48e48addabe084e0e125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentType: 0
+  CurrentType: 1
 --- !u!1 &2070953516
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +920,8 @@ MonoBehaviour:
   player1: {fileID: 715604488}
   player2: {fileID: 1547238844}
   maximumDistance: 0
+  player1BorderRenderer: {fileID: 0}
+  player2BorderRenderer: {fileID: 0}
 --- !u!1001 &2102257035
 Prefab:
   m_ObjectHideFlags: 0
@@ -989,4 +995,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da8421682c48e48addabe084e0e125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentType: 0
+  CurrentType: 2

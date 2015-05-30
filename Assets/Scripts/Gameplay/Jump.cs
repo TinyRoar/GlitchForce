@@ -66,11 +66,13 @@ public class Jump : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (currentState == State.jumping)
         StopJump();
     }
 
     public void StartGlitchJump()
     {
+        Debug.Log("iuqvhhhebuia");
         jumpHeight = Config.Instance.JumpGlitchHeight;
         jumpWidth = Config.Instance.JumpGlitchWidth;
     }

@@ -60,12 +60,14 @@ public class GlitchCollector : MonoBehaviour {
 
     private void DropPlayerGlitch()
     {
+        selectedPlayerGlitch.End(this.gameObject);
         selectedPlayerGlitchGameObject.SetActive(true);
         selectedPlayerGlitchGameObject.transform.position = playerGlitchSpawnPoint.position;
     }
 
     private void DropWorldGlitch()
     {
+        selectedWorldGlitch.End(this.gameObject);
         selectedWorldGlitchGameObject.SetActive(true);
     }
 }
