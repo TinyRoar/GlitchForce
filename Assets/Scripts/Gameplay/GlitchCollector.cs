@@ -25,7 +25,10 @@ public class GlitchCollector : MonoBehaviour {
             {
                 if(selectedPlayerGlitch != null)
                 {
-                    DropPlayerGlitch();
+                    if (!selectedPlayerGlitch.DestroyOnDrop)
+                    {
+                        DropPlayerGlitch();
+                    }
                 }
             }
 
