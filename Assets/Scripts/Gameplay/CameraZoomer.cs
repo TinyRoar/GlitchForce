@@ -10,10 +10,10 @@ public class CameraZoomer : MonoBehaviour {
     public MeshRenderer[] borderRenderers;
 
     public float minimumFieldOfView;
+    public float maxFieldOfView;
     public float speed;
     public float negativeSpeed;
     bool playersAreVisible = true;
-    private float toSmallView;
 
 
 	// Use this for initialization
@@ -22,23 +22,27 @@ public class CameraZoomer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void ZoomCam (Movement movement) {
         Vector2 middleVec = GetMiddleBewteenPlayers();
         transform.position = new Vector3(middleVec.x, transform.position.y, transform.position.z);
         playersAreVisible = true;
+        
         foreach(MeshRenderer renderer in borderRenderers)
         {
             if(!renderer.IsVisibleFrom(Camera.main))
             {
-                Debug.Log("Pos");
-                toSmallView = Camera.main.fieldOfView;
                 Camera.main.fieldOfView+= speed;
                 playersAreVisible = false;
                 break;
             }
         }
 
-        if(playersAreVisible && Camera.main.fieldOfView > minimumFieldOfView && Camera.main.fieldOfView > toSmallView + 1)
+        if(Camera.main.fieldOfView > maxFieldOfView)
+        {
+            movement.transform.position = movement.lastPosition;
+        }
+
+        if(playersAreVisible && Camera.main.fieldOfView > minimumFieldOfView)
         {
             Camera.main.fieldOfView-= negativeSpeed;
         }
