@@ -1654,7 +1654,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .910000026}
   serializedVersion: 2
-  m_Size: {x: 1.41999996, y: 2.5}
+  m_Size: {x: .579999983, y: 2.29999995}
 --- !u!61 &6176304
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1667,7 +1667,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .889999986}
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: .600000024, y: 1.80999994}
 --- !u!95 &9546642
 Animator:
   serializedVersion: 3
@@ -1734,10 +1734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisPlayer: 2
   CurrentDirection: 1
+  LastDirection: 1
   CurrentState: 0
   isInvincible: 0
   isTurning: 0
-  turningSpeed: 50
 --- !u!137 &13710822
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

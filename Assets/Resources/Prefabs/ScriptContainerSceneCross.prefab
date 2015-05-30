@@ -82,9 +82,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  JumpHeight: 28
+  JumpHeight: 10
   JumpWidth: 0
-  JumpGlitchHeight: 70
+  JumpGlitchHeight: 30
   JumpGlitchWidth: 0
   JumpSpeed: .5
 --- !u!114 &11475750
