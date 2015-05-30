@@ -9,6 +9,7 @@ TagManager:
   - SceneFinish
   - Object
   - DieArea
+  - Switch
   layers:
   - Default
   - TransparentFX
