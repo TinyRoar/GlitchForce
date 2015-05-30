@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
     {
         isTurning = true;
         Updater.Instance.OnUpdate += DoUpdate;
+        this.GetComponent<Jump>().AllowJumping = false;
     }
 
 	
