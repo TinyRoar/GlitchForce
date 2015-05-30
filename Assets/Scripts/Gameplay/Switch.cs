@@ -6,6 +6,13 @@ public class Switch : MonoBehaviour
 
     public GameObject ObjectToDestroy;
 
+	public enum SwitchState {
+		None,
+		Destroy,
+		Visible
+	}
+	public SwitchState CurrentSwitchState;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +22,16 @@ public class Switch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameObject.Destroy(ObjectToDestroy);
+			switch(CurrentSwitchState)
+			{
+			case SwitchState.Destroy:
+            	GameObject.Destroy(ObjectToDestroy);
+				break;
+			case SwitchState.Visible:
+				ObjectToDestroy.SetActive(true);
+				break;
+
+			}
         }
     }
 
