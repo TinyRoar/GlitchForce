@@ -25,6 +25,7 @@ public class TimeCounter : MonoBehaviour
 
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
+        if(TimerText != null)
         TimerText.text = niceTime;
 	}
 }
