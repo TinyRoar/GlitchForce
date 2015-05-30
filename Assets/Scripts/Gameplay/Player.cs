@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Config.State CurrentState = Config.State.Standing;
 
     public bool isInvincible = false;
+
     public bool isTurning = false;
     public float turningSpeed = 50.0f;
 
@@ -61,4 +62,15 @@ public class Player : MonoBehaviour
         isTurning = true;
         Updater.Instance.OnUpdate += DoUpdate;
     }
+
+	
+    public Animator Hero { get; private set; }
+
+    void Start()
+    {
+        Hero = this.transform.FindChild("hero").GetComponent<Animator>();
+    }
+
+
+
 }

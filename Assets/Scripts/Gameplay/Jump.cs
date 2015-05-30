@@ -12,6 +12,7 @@ public class Jump : MonoBehaviour
     private float defaultTime = 1.0f;
     private float jumpTime;
     private float gravity = 1;
+    //private Vector3 jumpStartPos;
 
     // Use this for initialization
     void Start()
@@ -46,14 +47,16 @@ public class Jump : MonoBehaviour
         jumpTime = defaultTime;
         gravity = this.GetComponent<Rigidbody2D>().gravityScale;
         this.GetComponent<Rigidbody2D>().gravityScale = 0;
+        this.player.Hero.Play("JumpUp");
+        //this.jumpStartPos = this.transform.position;
     }
 
     private void StopJump()
     {
         player.CurrentState = Config.State.Standing;
         this.GetComponent<Rigidbody2D>().gravityScale = gravity;
+        this.player.Hero.Play("JumpLand");
     }
-
 
     private void DoJump()
     {
@@ -62,8 +65,9 @@ public class Jump : MonoBehaviour
 
         jumpTime -= Time.deltaTime;
         Vector3 pos = this.transform.position;
+        //Vector3 pos = this.jumpStartPos;
 
-        pos.y += jumpHeight / 100.0f * jumpTime * gravity;
+        pos.y += jumpHeight * jumpTime * gravity * Time.deltaTime;
         pos.x += jumpWidth / 10.0f * Time.deltaTime * (int)player.CurrentDirection;
         this.transform.position = pos;
 
