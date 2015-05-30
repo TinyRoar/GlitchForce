@@ -1825,7 +1825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da8421682c48e48addabe084e0e125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glitchImage: {fileID: 0}
   CurrentType: 2
+  destroyOnDrop: 1
 --- !u!114 &810383177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3389,7 +3391,6 @@ GameObject:
   - 33: {fileID: 1547022899}
   - 23: {fileID: 1547022898}
   - 61: {fileID: 1547022897}
-  - 114: {fileID: 1547022896}
   - 114: {fileID: 1547022895}
   m_Layer: 0
   m_Name: Glitch
@@ -3422,19 +3423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47da8421682c48e48addabe084e0e125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glitchImage: {fileID: 0}
   CurrentType: 2
---- !u!114 &1547022896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11427774, guid: cb3719cb5a12ad04ebf95e5ff5d935bb,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1547022893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  destroyOnDrop: 1
 --- !u!61 &1547022897
 BoxCollider2D:
   m_ObjectHideFlags: 0
