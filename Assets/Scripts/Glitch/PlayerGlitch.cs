@@ -20,7 +20,18 @@ public class PlayerGlitch : Glitch
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
             case PlayerGlitchType.PlayerJump:
-                //player.GetComponent<Movement>().DoGlitchJump();
+                player.GetComponent<Jump>().StartGlitchJump();
+                break;
+        }
+    }
+
+    public override void End(GameObject player)
+    {
+
+        switch (CurrentType)
+        {
+            case PlayerGlitchType.PlayerJump:
+                player.GetComponent<Jump>().StopGlitchJump();
                 break;
         }
     }
