@@ -22,7 +22,9 @@ public class PlayerGlitch : Glitch
         {
             case PlayerGlitchType.Gravity:
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                player.GetComponent<Player>().SignInUpdate();
                 break;
+
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StartGlitchJump();
                 break;
@@ -45,6 +47,9 @@ public class PlayerGlitch : Glitch
 
         switch (CurrentType)
         {
+            case PlayerGlitchType.Gravity:
+                Updater.Instance.OnUpdate += player.GetComponent<Player>().DoFallingUpdate;
+                break;
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StopGlitchJump();
                 break;
