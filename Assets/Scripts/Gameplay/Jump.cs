@@ -31,6 +31,11 @@ public class Jump : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && currentState != State.jumping && player.ThisPlayer == Player.PlayerID.Player1)
         {
+        StartJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightShift) && currentState != State.jumping && player.ThisPlayer == Player.PlayerID.Player2)
+        {
             StartJump();
         }
 
