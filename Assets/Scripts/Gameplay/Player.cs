@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     public PlayerID ThisPlayer;
 
     public Config.Direction CurrentDirection = Config.Direction.Right;
+    public Config.Direction LastDirection = Config.Direction.Right;
 
     public Config.State CurrentState = Config.State.Standing;
+
 
     public bool isInvincible = false;
 	

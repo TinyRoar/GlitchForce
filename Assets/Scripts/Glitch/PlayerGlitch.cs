@@ -51,7 +51,8 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StopGlitchMovement();
                 break;
-            case PlayerGlitchType.Duplicate:
+            case PlayerGlitchType.Gravity:
+                player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
             case PlayerGlitchType.AutoMove:
                 player.GetComponent<Movement>().StopAutoMove();
