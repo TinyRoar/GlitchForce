@@ -34,8 +34,9 @@ public class Config : Singleton<Config>
     public enum State
     {
         Standing,
-        Running,
-        Jumping
+        //Running,
+        Jumping,
+        Falling
     }
 
 

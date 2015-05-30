@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
             transform.position -= new Vector3(speed*(speedGlitchActive ? glitchSpeed : 1), 0, 0)*Time.deltaTime;
             player.CurrentDirection = Config.Direction.Left;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-            if (player.CurrentState != Config.State.Jumping)
+            if (player.CurrentState == Config.State.Standing)
                 this.player.Hero.Play("Run");
             IsMoving = true;
         }
@@ -64,14 +64,14 @@ public class Movement : MonoBehaviour
             transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
             player.CurrentDirection = Config.Direction.Right;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
-            if(player.CurrentState != Config.State.Jumping)
+            if (player.CurrentState == Config.State.Standing)
                 this.player.Hero.Play("Run");
             IsMoving = true;
         }
         // Moving was last frame, but was stopped this Frame
         else if (IsMoving == true)
         {
-            if (player.CurrentState != Config.State.Jumping)
+            if (player.CurrentState == Config.State.Standing)
                 this.player.Hero.Play("Idle");
             IsMoving = false;
         }
@@ -96,6 +96,31 @@ public class Movement : MonoBehaviour
     internal void StopAutoMove()
     {
         this.IsAutoMoving = false;
+    }
+
+    // JumpFall Animation if Player fall down
+    private int groundedCount = 0;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Enter");
+        groundedCount++;
+        this.player.Hero.Play("Idle");
+        if (player.CurrentState == Config.State.Falling)
+            player.CurrentState = Config.State.Standing;
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Exit");
+        groundedCount--;
+        if (groundedCount == 0)
+        {
+            if (player.CurrentState != Config.State.Jumping)
+            {
+                Debug.Log("Fall Down");
+                player.CurrentState = Config.State.Falling;
+                this.player.Hero.Play("JumpFall");
+            }
+        }
     }
 
 }
