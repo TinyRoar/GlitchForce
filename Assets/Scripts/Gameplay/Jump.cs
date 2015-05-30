@@ -56,7 +56,6 @@ public class Jump : MonoBehaviour
         this.player.Hero.Play("JumpLand");
     }
 
-
     private void DoJump()
     {
         if (player.CurrentState != Config.State.Jumping)
