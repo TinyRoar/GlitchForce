@@ -50,6 +50,7 @@ public class GlitchCollector : MonoBehaviour {
         glitch.Execute(this.gameObject);
         if(glitch is PlayerGlitch)
         {
+            transform.FindChild("GlitchDisplay").GetComponent<MeshRenderer>().material.mainTexture = glitch.glitchImage;
             selectedPlayerGlitch = glitch as PlayerGlitch;
             selectedPlayerGlitchGameObject = glitch.gameObject;
         }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class Glitch : MonoBehaviour
 {
+    public Texture2D glitchImage;
 
 	// Use this for initialization
 	void Start () {
