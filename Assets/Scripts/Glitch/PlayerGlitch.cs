@@ -16,6 +16,7 @@ public class PlayerGlitch : Glitch
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
+    public bool destroyOnDrop = true;
 
     public override void Execute(GameObject player)
     {
@@ -57,6 +58,7 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.Gravity:
                 Updater.Instance.OnUpdate += player.GetComponent<Player>().DoFallingUpdate;
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
+                player.GetComponent<Jump>().AllowJumping = true;
                 break;
             case PlayerGlitchType.Jump:
                 player.GetComponent<Jump>().StopGlitchJump();

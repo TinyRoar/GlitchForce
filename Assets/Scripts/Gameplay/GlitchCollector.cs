@@ -25,7 +25,11 @@ public class GlitchCollector : MonoBehaviour {
             {
                 if(selectedPlayerGlitch != null)
                 {
-                    DropPlayerGlitch();
+                    selectedPlayerGlitch.End(this.gameObject);
+                    if (!selectedPlayerGlitch.destroyOnDrop)
+                    {
+                        DropPlayerGlitch();
+                    }
                 }
             }
 
@@ -62,7 +66,6 @@ public class GlitchCollector : MonoBehaviour {
 
     private void DropPlayerGlitch()
     {
-        selectedPlayerGlitch.End(this.gameObject);
         selectedPlayerGlitchGameObject.SetActive(true);
         selectedPlayerGlitchGameObject.transform.position = playerGlitchSpawnPoint.position;
     }
