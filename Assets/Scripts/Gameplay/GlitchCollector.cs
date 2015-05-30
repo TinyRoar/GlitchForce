@@ -55,6 +55,7 @@ public class GlitchCollector : MonoBehaviour {
         {
             selectedWorldGlitch = glitch as WorldGlitch;
             selectedWorldGlitchGameObject = glitch.gameObject;
+            GlitchDisplayer.Instance.globalGlitchImage = glitch.GetComponent<Glitch>().glitchImage;
         }
         glitch.gameObject.SetActive(false);
     }
