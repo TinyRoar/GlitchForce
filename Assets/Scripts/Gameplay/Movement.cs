@@ -26,7 +26,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Spieler 1
         if (
             (
@@ -41,7 +40,7 @@ public class Movement : MonoBehaviour
             )
         {
             lastPosition = transform.position;
-            transform.position -= new Vector3(speed*(speedGlitchActive ? glitchSpeed : 1), 0, 0)*Time.deltaTime;
+            transform.position -= new Vector3(speed * (speedGlitchActive ? glitchSpeed : 1), 0, 0) * Time.deltaTime;
             player.CurrentDirection = Config.Direction.Left;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
             if (player.CurrentState == Config.State.Standing)
@@ -61,7 +60,7 @@ public class Movement : MonoBehaviour
             )
         {
             lastPosition = transform.position;
-            transform.position += new Vector3(speed, 0, 0) * Time.deltaTime;
+            transform.position += new Vector3(speed * (speedGlitchActive ? glitchSpeed : 1), 0, 0) * Time.deltaTime;
             player.CurrentDirection = Config.Direction.Right;
             Camera.main.GetComponent<CameraZoomer>().ZoomCam(this);
             if (player.CurrentState == Config.State.Standing)
@@ -76,12 +75,8 @@ public class Movement : MonoBehaviour
             IsMoving = false;
         }
 
-        Debug.Log(player.CurrentDirection);
-        Debug.Log(player.LastDirection);
-
         if(player.CurrentDirection != player.LastDirection)
         {
-            Debug.Log("Rotated");
             transform.Rotate(0, 180, 0);
         }
 
