@@ -15,8 +15,6 @@ public class PlayerGlitch : Glitch
         Collision
     }
 
-    public bool DestroyOnDrop = true;
-
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
 
     public override void Execute(GameObject player)
