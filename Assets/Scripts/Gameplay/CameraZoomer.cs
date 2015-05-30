@@ -6,6 +6,11 @@ public class CameraZoomer : MonoBehaviour {
     public Transform player2;
 
     public float maximumDistance;
+
+    public MeshRenderer player1BorderRenderer;
+    public MeshRenderer player2BorderRenderer;
+
+
 	// Use this for initialization
 	void Start () {
 	
