@@ -12,7 +12,6 @@ public class PlayerGlitch : Glitch
         Duplicate,
         AutoMove,
         Invincible,
-        Invisible,
     }
 
     public PlayerGlitchType CurrentType = PlayerGlitchType.None;
@@ -33,10 +32,9 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.Duplicate:
                 break;
             case PlayerGlitchType.AutoMove:
+                player.GetComponent<Movement>().StartAutoMove();
                 break;
             case PlayerGlitchType.Invincible:
-                break;
-            case PlayerGlitchType.Invisible:
                 break;
         }
     }
@@ -55,12 +53,12 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.Duplicate:
                 break;
             case PlayerGlitchType.AutoMove:
+                player.GetComponent<Movement>().StopAutoMove();
                 break;
             case PlayerGlitchType.Invincible:
                 break;
-            case PlayerGlitchType.Invisible:
-                break;
         }
     }
+
 
 }
