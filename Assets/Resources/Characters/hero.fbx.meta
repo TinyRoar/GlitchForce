@@ -529,7 +529,7 @@ ModelImporter:
       name: JumpFall
       takeName: Take 001
       firstFrame: 56
-      lastFrame: 62
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
