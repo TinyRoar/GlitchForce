@@ -12,12 +12,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/Level 2.unity
   - enabled: 1
-    path: Assets/Resources/Scenes/Level 3.unity
-  - enabled: 1
     path: Assets/Resources/Scenes/Level 4.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/Level 6.unity
   - enabled: 1
     path: Assets/Resources/Scenes/Level 5.unity
   - enabled: 1
-    path: Assets/Resources/Scenes/Level 6.unity
+    path: Assets/Resources/Scenes/Level 3.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/DarioLevel3.unity
   - enabled: 1
     path: Assets/Resources/Scenes/GameOver.unity
