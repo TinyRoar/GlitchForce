@@ -4,9 +4,7 @@ using System.Collections;
 
 public class Jump : MonoBehaviour
 {
-    public float jumpDelay;
-    private float timeToJump;
-    private bool countDownJump = false;
+
     private float jumpHeight;
     private float jumpWidth;
     private Player player;
@@ -24,7 +22,7 @@ public class Jump : MonoBehaviour
 
         jumpHeight = Config.Instance.JumpHeight;
         jumpWidth = Config.Instance.JumpWidth;
-		defaultTime = Config.Instance.JumpSpeed;
+        defaultTime = Config.Instance.JumpSpeed;
     }
 
     // Update is called once per frame
@@ -41,35 +39,17 @@ public class Jump : MonoBehaviour
             StartJump();
         }
 
-        if(countDownJump)
-        {
-            timeToJump -= Time.deltaTime;
-        }
-
-        if(timeToJump <= 0)
-        {
-            ProcessJump();
-        }
-
     }
 
     private void StartJump()
     {
-        countDownJump = true;
         SoundManager.Instance.Play("Jump");
-        this.player.Hero.Play("JumpUp");
-        //this.jumpStartPos = this.transform.position;
-    }
-
-    private void ProcessJump()
-    {
-        countDownJump = false;
-        timeToJump = jumpDelay;
         player.CurrentState = Config.State.Jumping;
         jumpTime = defaultTime;
         gravity = this.GetComponent<Rigidbody2D>().gravityScale;
         this.GetComponent<Rigidbody2D>().gravityScale = 0;
-
+        this.player.Hero.Play("JumpUp");
+        //this.jumpStartPos = this.transform.position;
     }
 
     public void StopJump()
