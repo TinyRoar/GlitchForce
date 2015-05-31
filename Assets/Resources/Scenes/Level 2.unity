@@ -2395,7 +2395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494276, guid: 3de851130d5adc9458e0b0000e6fbde7, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3de851130d5adc9458e0b0000e6fbde7, type: 2}
@@ -3725,7 +3725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490770, guid: 3824590b7b51b3c4994867217db26bfa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.32999992
+      value: 4.23999977
       objectReference: {fileID: 0}
     - target: {fileID: 490770, guid: 3824590b7b51b3c4994867217db26bfa, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3749,7 +3749,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 490770, guid: 3824590b7b51b3c4994867217db26bfa, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11432856, guid: 3824590b7b51b3c4994867217db26bfa, type: 2}
       propertyPath: destroyOnDrop
@@ -5437,7 +5437,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 431490, guid: 20a2ee084af3b564ca04b8d2229387f1, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20a2ee084af3b564ca04b8d2229387f1, type: 2}
