@@ -1902,6 +1902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e9efc7968b0f4ba2efb9dbc37413c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDelay: .150000006
   AllowJumping: 1
 --- !u!114 &11489394
 MonoBehaviour:
