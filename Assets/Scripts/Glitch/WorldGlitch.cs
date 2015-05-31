@@ -15,6 +15,7 @@ public class WorldGlitch : Glitch
 
     public override void Execute(GameObject player)
     {
+        SoundManager.Instance.Play("Glitch_Collect");
         switch (CurrentType)
         {
             case WorldGlitchType.ObjectGravity:

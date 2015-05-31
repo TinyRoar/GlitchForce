@@ -23,6 +23,7 @@ public class DieArea : MonoBehaviour
 
             if(this.playerDead >= this.playerCount)
             {
+                SoundManager.Instance.Play("Game Over");
                 DieArea.RestartLevel();
             }
         }
