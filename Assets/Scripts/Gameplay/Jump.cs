@@ -18,8 +18,8 @@ public class Jump : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = this.GetComponent<Player>();
-
+        player = this.transform.parent.GetComponent<Player>();
+        Debug.Log(player);
         jumpHeight = Config.Instance.JumpHeight;
         jumpWidth = Config.Instance.JumpWidth;
         defaultTime = Config.Instance.JumpSpeed;
@@ -46,8 +46,8 @@ public class Jump : MonoBehaviour
         SoundManager.Instance.Play("Jump");
         player.CurrentState = Config.State.Jumping;
         jumpTime = defaultTime;
-        gravity = this.GetComponent<Rigidbody2D>().gravityScale;
-        this.GetComponent<Rigidbody2D>().gravityScale = 0;
+        gravity = this.transform.parent.GetComponent<Rigidbody2D>().gravityScale;
+        this.transform.parent.GetComponent<Rigidbody2D>().gravityScale = 0;
         this.player.Hero.Play("JumpUp");
         //this.jumpStartPos = this.transform.position;
     }
@@ -58,7 +58,7 @@ public class Jump : MonoBehaviour
             return;
 
         player.CurrentState = Config.State.Standing;
-        this.GetComponent<Rigidbody2D>().gravityScale = gravity;
+        this.transform.parent.GetComponent<Rigidbody2D>().gravityScale = gravity;
         this.player.Hero.Play("JumpLand");
         SoundManager.Instance.Play("On_Collision");
     }
@@ -72,12 +72,12 @@ public class Jump : MonoBehaviour
             return;
 
         jumpTime -= Time.deltaTime;
-        Vector3 pos = this.transform.position;
+        Vector3 pos = this.transform.parent.position;
         //Vector3 pos = this.jumpStartPos;
 
         pos.y += jumpHeight * jumpTime * gravity * Time.deltaTime;
         pos.x += jumpWidth / 10.0f * Time.deltaTime * (int)player.CurrentDirection;
-        this.transform.position = pos;
+        this.transform.parent.position = pos;
 
     }
 
