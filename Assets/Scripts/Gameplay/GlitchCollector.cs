@@ -25,7 +25,7 @@ public class GlitchCollector : MonoBehaviour {
             {
                 if(selectedPlayerGlitch != null)
                 {
-                    selectedPlayerGlitch.End(this.gameObject);
+                    selectedPlayerGlitch.End(this.transform.parent.gameObject);
                     if (!selectedPlayerGlitch.destroyOnDrop)
                     {
                         DropPlayerGlitch();
@@ -47,10 +47,10 @@ public class GlitchCollector : MonoBehaviour {
 
     private void CollectGlitch(Glitch glitch)
     {
-        glitch.Execute(this.gameObject);
+        glitch.Execute(this.transform.parent.gameObject);
         if(glitch is PlayerGlitch)
         {
-            transform.FindChild("GlitchDisplay").GetComponent<MeshRenderer>().material.mainTexture = glitch.glitchImage;
+            transform.parent.FindChild("GlitchDisplay").GetComponent<MeshRenderer>().material.mainTexture = glitch.glitchImage;
             selectedPlayerGlitch = glitch as PlayerGlitch;
             selectedPlayerGlitchGameObject = glitch.gameObject;
         }
