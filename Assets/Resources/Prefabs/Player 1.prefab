@@ -1777,7 +1777,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .910000026}
   serializedVersion: 2
-  m_Size: {x: .579999983, y: 2}
+  m_Size: {x: .300000012, y: 2}
 --- !u!61 &6132318
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1790,7 +1790,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .889999986}
   serializedVersion: 2
-  m_Size: {x: .600000024, y: 1.80999994}
+  m_Size: {x: .5, y: 1.80999994}
 --- !u!65 &6542618
 BoxCollider:
   m_ObjectHideFlags: 1
