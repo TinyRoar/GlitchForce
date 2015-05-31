@@ -30,11 +30,11 @@ public class Jump : MonoBehaviour
     {
         DoJump();
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player1 && AllowJumping == true)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Player1A")) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player1 && AllowJumping == true)
         {
             StartJump();
         }
-        if ((Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.UpArrow)) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player2 && AllowJumping == true)
+        if ((Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("Player2A")) && player.CurrentState != Config.State.Jumping && player.ThisPlayer == Player.PlayerID.Player2 && AllowJumping == true)
         {
             StartJump();
         }
