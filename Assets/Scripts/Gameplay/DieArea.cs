@@ -23,12 +23,12 @@ public class DieArea : MonoBehaviour
 
             if(this.playerDead >= this.playerCount)
             {
-                this.RestartLevel();
+                DieArea.RestartLevel();
             }
         }
     }
 
-    public void RestartLevel()
+    public static void RestartLevel()
     {
         Application.LoadLevel(SceneCrossConfig.Instance.CurrentSceneID);
     }

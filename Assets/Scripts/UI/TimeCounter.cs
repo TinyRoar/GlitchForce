@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class TimeCounter : MonoBehaviour
-
 {
     private float timeCounter;
     public float defaultTime;
@@ -25,9 +24,13 @@ public class TimeCounter : MonoBehaviour
 
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        
-
         if(TimerText != null)
-        TimerText.text = niceTime;
+            TimerText.text = niceTime;
+
+	    if (timeCounter <= 0)
+	    {
+            DieArea.RestartLevel();
+	    }
+
 	}
 }
