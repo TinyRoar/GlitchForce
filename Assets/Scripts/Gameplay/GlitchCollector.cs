@@ -25,11 +25,19 @@ public class GlitchCollector : MonoBehaviour {
             {
                 if(selectedPlayerGlitch != null)
                 {
-                    selectedPlayerGlitch.End(this.transform.parent.gameObject);
+                    if (selectedPlayerGlitch is DuplicateGlitch && other.GetComponent<Glitch>() is TeleportGlitch)
+                    {
+                        // do not end Dubplicate
+                    }
+                    else
+                    {
+                        selectedPlayerGlitch.End(this.transform.parent.gameObject);
+                    }
                     if (!selectedPlayerGlitch.destroyOnDrop)
                     {
                         DropPlayerGlitch();
                     }
+
                 }
             }
 
