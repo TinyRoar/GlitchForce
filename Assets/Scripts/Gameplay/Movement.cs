@@ -33,12 +33,12 @@ public class Movement : MonoBehaviour
         // Spieler 1
         if (
             (
-                (Input.GetKey(KeyCode.A) && IsAutoMoving == false)
+                ((Input.GetKey(KeyCode.A) || Input.GetAxis("Player1X") < -0.9f) && IsAutoMoving == false)
                 && player.ThisPlayer == Player.PlayerID.Player1
                 )
             ||
             (
-                (Input.GetKey(KeyCode.LeftArrow) && IsAutoMoving == false)
+                ((Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Player2X") < -0.9f) && IsAutoMoving == false)
                 && player.ThisPlayer == Player.PlayerID.Player2
                 )
             )
@@ -53,12 +53,12 @@ public class Movement : MonoBehaviour
         }
         else if (
                 (
-                    (Input.GetKey(KeyCode.D) || IsAutoMoving == true)
+                    (Input.GetKey(KeyCode.D) || Input.GetAxis("Player1X") > 0.9f || IsAutoMoving == true)
                     && player.ThisPlayer == Player.PlayerID.Player1
                 )
             ||
                 (
-                    (Input.GetKey(KeyCode.RightArrow) || IsAutoMoving == true)
+                    (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Player2X") > 0.9f|| IsAutoMoving == true)
                     && player.ThisPlayer == Player.PlayerID.Player2
                 )
             )
