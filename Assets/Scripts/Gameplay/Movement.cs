@@ -90,6 +90,7 @@ public class Movement : MonoBehaviour
     internal void StartGlitchMovement()
     {
         speedGlitchActive = true;
+        SoundManager.Instance.Play("GL1-256");
     }
 
     internal void StopGlitchMovement()

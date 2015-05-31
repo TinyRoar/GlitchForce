@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
         //letzter Frame der Drehung
         if (this.transform.eulerAngles.z > 180)
         {
+            SoundManager.Instance.Play("GL1-248");
             Vector3 pos = this.transform.eulerAngles;
             pos.y += 180;
             pos.z = 180;
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
             this.GetComponent<Movement>().AllowMoving = true;
             Updater.Instance.OnUpdate -= DoUpdate;
         }
+
     }
     
     public void SignInUpdate()
