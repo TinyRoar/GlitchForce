@@ -43,6 +43,7 @@ public class Jump : MonoBehaviour
 
     private void StartJump()
     {
+        SoundManager.Instance.Play("Jump");
         player.CurrentState = Config.State.Jumping;
         jumpTime = defaultTime;
         gravity = this.GetComponent<Rigidbody2D>().gravityScale;
@@ -51,11 +52,15 @@ public class Jump : MonoBehaviour
         //this.jumpStartPos = this.transform.position;
     }
 
-    private void StopJump()
+    public void StopJump()
     {
+        if (player.CurrentState != Config.State.Jumping)
+            return;
+
         player.CurrentState = Config.State.Standing;
         this.GetComponent<Rigidbody2D>().gravityScale = gravity;
         this.player.Hero.Play("JumpLand");
+        SoundManager.Instance.Play("On_Collision");
     }
 
     private void DoJump()
@@ -86,6 +91,7 @@ public class Jump : MonoBehaviour
 
     public void StartGlitchJump()
     {
+        SoundManager.Instance.Play("Glitch_Jump");
         jumpHeight = Config.Instance.JumpGlitchHeight;
         jumpWidth = Config.Instance.JumpGlitchWidth;
     }

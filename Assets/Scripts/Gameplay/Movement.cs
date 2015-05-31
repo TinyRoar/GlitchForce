@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public Vector3 lastPosition;
 
     private bool IsAutoMoving = false;
-
+    public bool AllowMoving { get; set; }
     private bool IsMoving = false;
 
     // Use this for initialization
@@ -21,11 +21,15 @@ public class Movement : MonoBehaviour
     {
         player = this.GetComponent<Player>();
         speed = Config.Instance.Speed;
+        this.AllowMoving = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.AllowMoving == false)
+            return;
+
         // Spieler 1
         if (
             (

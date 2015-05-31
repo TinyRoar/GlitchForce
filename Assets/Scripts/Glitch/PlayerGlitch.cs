@@ -20,14 +20,17 @@ public class PlayerGlitch : Glitch
 
     public override void Execute(GameObject player)
     {
+        SoundManager.Instance.Play("Glitch_Collect");
         switch (CurrentType)
         {
             case PlayerGlitchType.Collision:
                 player.layer = LayerMask.NameToLayer("PlayerNoCollision");
                 break;
             case PlayerGlitchType.Gravity:
+                player.GetComponent<Jump>().StopJump();
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 player.GetComponent<Player>().SignInUpdate();
+                player.GetComponent<Movement>().AllowMoving = false;
                 break;
 
             case PlayerGlitchType.Jump:
@@ -49,7 +52,7 @@ public class PlayerGlitch : Glitch
 
     public override void End(GameObject player)
     {
-
+        SoundManager.Instance.Play("Glitch_Drop");
         switch (CurrentType)
         {
             case PlayerGlitchType.Collision:
