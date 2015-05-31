@@ -28,6 +28,7 @@ public class PlayerGlitch : Glitch
             case PlayerGlitchType.Gravity:
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 player.GetComponent<Player>().SignInUpdate();
+                player.GetComponent<Movement>().AllowMoving = false;
                 break;
 
             case PlayerGlitchType.Jump:

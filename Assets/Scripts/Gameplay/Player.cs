@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
             
 			this.isTurning = false;
 			this.GetComponent<Jump>().AllowJumping = true;
+            this.GetComponent<Movement>().AllowMoving = true;
             Updater.Instance.OnUpdate -= DoUpdate;
         }
     }
