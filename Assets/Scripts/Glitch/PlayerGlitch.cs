@@ -34,7 +34,7 @@ public class PlayerGlitch : Glitch
                 break;
 
             case PlayerGlitchType.Jump:
-                player.GetComponent<Jump>().StartGlitchJump();
+                player.transform.FindChild("Jumper").GetComponent<Jump>().StartGlitchJump();
                 break;
             case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StartGlitchMovement();
@@ -63,7 +63,7 @@ public class PlayerGlitch : Glitch
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 break;
             case PlayerGlitchType.Jump:
-                player.GetComponent<Jump>().StopGlitchJump();
+                player.transform.FindChild("Jumper").GetComponent<Jump>().StopGlitchJump();
                 break;
             case PlayerGlitchType.Speed:
                 player.GetComponent<Movement>().StopGlitchMovement();
