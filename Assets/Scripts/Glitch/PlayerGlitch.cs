@@ -27,7 +27,7 @@ public class PlayerGlitch : Glitch
                 player.layer = LayerMask.NameToLayer("PlayerNoCollision");
                 break;
             case PlayerGlitchType.Gravity:
-                player.GetComponent<Jump>().StopJump();
+                player.transform.FindChild("Jumper").GetComponent<Jump>().StopJump();
                 player.GetComponent<Rigidbody2D>().gravityScale *= -1;
                 player.GetComponent<Player>().SignInUpdate();
                 player.GetComponent<Movement>().AllowMoving = false;
