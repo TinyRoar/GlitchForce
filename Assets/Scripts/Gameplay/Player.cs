@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             this.transform.eulerAngles = pos;
             
 			this.isTurning = false;
-			this.GetComponent<Jump>().AllowJumping = true;
+			this.transform.FindChild("Jumper").GetComponent<Jump>().AllowJumping = true;
             this.GetComponent<Movement>().AllowMoving = true;
             Updater.Instance.OnUpdate -= DoUpdate;
         }
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     {
         isTurning = true;
         Updater.Instance.OnUpdate += DoUpdate;
-        this.GetComponent<Jump>().AllowJumping = false;
+        this.transform.FindChild("Jumper"). GetComponent<Jump>().AllowJumping = false;
     }
 
 	
