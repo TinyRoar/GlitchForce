@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cef4d1f54ec70c43ae63079f445d9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToGoBackToMenu: 10
+  timeToGoBackToMenu: 5
 --- !u!4 &1220900196
 Transform:
   m_ObjectHideFlags: 0

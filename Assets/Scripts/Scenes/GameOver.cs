@@ -16,6 +16,7 @@ public class GameOver : MonoBehaviour {
 
         if(currentTime <= 0)
         {
+            SceneCrossConfig.Instance.CurrentSceneID = 0;
             Application.LoadLevel(0);
         }
 	}
