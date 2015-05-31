@@ -993,6 +993,33 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 448046, guid: 336d4b8428e530d4bbe4d9a92706e74e, type: 2}
   m_PrefabInternal: {fileID: 905461571}
+--- !u!1 &281474861
+GameObject:
+  m_PrefabParentObject: {fileID: 178002, guid: b02417aa9d462164092b3814e6795c2b, type: 2}
+  m_PrefabInternal: {fileID: 106576586}
+--- !u!114 &281474862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281474861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6277b6f93881e1047b88eb36de86211c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioList:
+  - {fileID: 8300000, guid: 9552c6af806de7a4a9dfb1135e7bb410, type: 3}
+  - {fileID: 8300000, guid: 4aea18f3ad6bdee4ab2e84bbfa3d7095, type: 3}
+  - {fileID: 8300000, guid: e4bc2ea2ae282c64bafac5895a9ff06c, type: 3}
+  - {fileID: 8300000, guid: 9a4e364ccbf451c41855fdb8db37d900, type: 3}
+  - {fileID: 8300000, guid: e85d8bb4e8b6fe14b8f7b702323cc156, type: 3}
+  - {fileID: 8300000, guid: 32e8b8b48fb7d174fb37e7c8b8ffbf24, type: 3}
+  - {fileID: 8300000, guid: 3ca3194611067b24fb548d7e9954e1a8, type: 3}
+  - {fileID: 8300000, guid: 2c8497861d89ee847853b111ece11f09, type: 3}
+  - {fileID: 8300000, guid: 8b3bf2a89ba15da41bd72d4e545962ed, type: 3}
+  - {fileID: 8300000, guid: ace48e7eb9b658e4798029297028f99a, type: 3}
+  - {fileID: 8300000, guid: 925d35d54b80dad478672b356d7a7a56, type: 3}
 --- !u!1001 &296416976
 Prefab:
   m_ObjectHideFlags: 0
