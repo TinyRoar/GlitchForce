@@ -34,6 +34,7 @@ public class SceneFinish : MonoBehaviour
     {
         if (this.playerInFinisher >= this.playerCount)
         {
+            SoundManager.Instance.Play("Level_Finish1");
             Debug.Log(SceneCrossConfig.Instance.CurrentSceneID);
             SceneCrossConfig.Instance.CurrentSceneID++;
             //Debug.Log(SceneCrossConfig.Instance.CurrentSceneID);

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BlueScreen : MonoBehaviour
 {
-
     public float TimeFadeOut = 3.0f;
     private float aTimer = 0;
 
