@@ -101,6 +101,7 @@ public class Movement : MonoBehaviour
     internal void StartAutoMove()
     {
         this.IsAutoMoving = true;
+        SoundManager.Instance.Play("GL1-253");
     }
 
     internal void StopAutoMove()

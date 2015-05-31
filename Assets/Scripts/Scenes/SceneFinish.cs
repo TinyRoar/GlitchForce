@@ -17,7 +17,6 @@ public class SceneFinish : MonoBehaviour
         if (other.tag == "Player")
         {
             this.playerInFinisher++;
-            Debug.Log("Player go in Finish");
             this.CheckFinish();
         }
     }
@@ -27,7 +26,6 @@ public class SceneFinish : MonoBehaviour
         if (other.tag == "Player")
         {
             this.playerInFinisher--;
-            Debug.Log("Player leave in Finish");
             this.CheckFinish();
         }
     }
@@ -36,7 +34,9 @@ public class SceneFinish : MonoBehaviour
     {
         if (this.playerInFinisher >= this.playerCount)
         {
+            Debug.Log(SceneCrossConfig.Instance.CurrentSceneID);
             SceneCrossConfig.Instance.CurrentSceneID++;
+            //Debug.Log(SceneCrossConfig.Instance.CurrentSceneID);
             Application.LoadLevel(SceneCrossConfig.Instance.CurrentSceneID);
         }
     }
