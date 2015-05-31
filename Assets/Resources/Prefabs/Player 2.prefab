@@ -274,6 +274,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &141376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479202}
+  - 61: {fileID: 6121374}
+  - 114: {fileID: 11443322}
+  m_Layer: 8
+  m_Name: GlitchCollector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &143996
 GameObject:
   m_ObjectHideFlags: 1
@@ -474,7 +491,6 @@ GameObject:
   - 114: {fileID: 11462684}
   - 114: {fileID: 11459158}
   - 61: {fileID: 6170962}
-  - 114: {fileID: 11459872}
   - 114: {fileID: 11414066}
   m_Layer: 8
   m_Name: Player 2
@@ -1352,6 +1368,18 @@ Transform:
   - {fileID: 428776}
   m_Father: {fileID: 498376}
   m_RootOrder: 0
+--- !u!4 &479202
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494276}
+  m_RootOrder: 5
 --- !u!4 &482494
 Transform:
   m_ObjectHideFlags: 1
@@ -1473,7 +1501,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.80000019, y: .100000001, z: 0}
+  m_LocalPosition: {x: -6.61999989, y: .100000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405722}
@@ -1481,6 +1509,7 @@ Transform:
   - {fileID: 441114}
   - {fileID: 437614}
   - {fileID: 499542}
+  - {fileID: 479202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &496766
@@ -1705,6 +1734,19 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &6121374
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141376}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: .699999988}
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1}
 --- !u!61 &6170962
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1784,6 +1826,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalGlitchImage: {fileID: 0}
+--- !u!114 &11443322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755680beae02c0e4c9bdd6b0fd6dd070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGlitchSpawnPoint: {fileID: 405722}
 --- !u!114 &11459158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1797,18 +1851,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   lastPosition: {x: 0, y: 0, z: 0}
---- !u!114 &11459872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755680beae02c0e4c9bdd6b0fd6dd070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGlitchSpawnPoint: {fileID: 405722}
 --- !u!114 &11462684
 MonoBehaviour:
   m_ObjectHideFlags: 1
