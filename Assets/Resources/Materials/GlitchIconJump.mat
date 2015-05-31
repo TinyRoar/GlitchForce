@@ -6,11 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD:Assets/Resources/Materials/GlitchIconJump.mat
   m_Name: GlitchIconJump
-=======
-  m_Name: GlitchIcon2
->>>>>>> 8f9fc0288ffb424d8a751c5a0e0394849e8bbbe0:Assets/Resources/Materials/GlitchIcon2.mat
   m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5

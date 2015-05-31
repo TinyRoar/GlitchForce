@@ -20,6 +20,7 @@ public class PlayerGlitch : Glitch
 
     public override void Execute(GameObject player)
     {
+        SoundManager.Instance.Play("Glitch_Collect");
         switch (CurrentType)
         {
             case PlayerGlitchType.Collision:
@@ -51,7 +52,7 @@ public class PlayerGlitch : Glitch
 
     public override void End(GameObject player)
     {
-
+        SoundManager.Instance.Play("Glitch_Drop");
         switch (CurrentType)
         {
             case PlayerGlitchType.Collision:
