@@ -28,7 +28,7 @@ public class DieArea : MonoBehaviour
         }
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
         Application.LoadLevel(SceneCrossConfig.Instance.CurrentSceneID);
     }
