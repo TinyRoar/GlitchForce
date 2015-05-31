@@ -15,7 +15,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        _instance = this as T;
+	    if (_instance == null)
+	    {
+            _instance = this as T;
+	    }
 	}
 	
 	// Update is called once per frame

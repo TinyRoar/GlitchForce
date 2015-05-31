@@ -413,7 +413,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11406724, guid: b02417aa9d462164092b3814e6795c2b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b02417aa9d462164092b3814e6795c2b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &108524334
@@ -475,6 +476,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 132333994}
   - 114: {fileID: 132333993}
+  - 114: {fileID: 132333995}
   m_Layer: 0
   m_Name: ScriptContainer
   m_TagString: Untagged
@@ -505,6 +507,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &132333995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132333992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6277b6f93881e1047b88eb36de86211c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioList:
+  - {fileID: 8300000, guid: 9a4e364ccbf451c41855fdb8db37d900, type: 3}
+  - {fileID: 8300000, guid: e85d8bb4e8b6fe14b8f7b702323cc156, type: 3}
+  - {fileID: 8300000, guid: 9552c6af806de7a4a9dfb1135e7bb410, type: 3}
+  - {fileID: 8300000, guid: 4aea18f3ad6bdee4ab2e84bbfa3d7095, type: 3}
+  - {fileID: 8300000, guid: 32e8b8b48fb7d174fb37e7c8b8ffbf24, type: 3}
+  - {fileID: 8300000, guid: e4bc2ea2ae282c64bafac5895a9ff06c, type: 3}
+  - {fileID: 8300000, guid: 8b6df06205b7a2b4287d7811f114d3dd, type: 3}
+  - {fileID: 8300000, guid: 3ca3194611067b24fb548d7e9954e1a8, type: 3}
+  - {fileID: 8300000, guid: 2c8497861d89ee847853b111ece11f09, type: 3}
+  - {fileID: 8300000, guid: 8b3bf2a89ba15da41bd72d4e545962ed, type: 3}
+  - {fileID: 8300000, guid: ace48e7eb9b658e4798029297028f99a, type: 3}
+  - {fileID: 8300000, guid: 925d35d54b80dad478672b356d7a7a56, type: 3}
 --- !u!4 &134932068
 Transform:
   m_PrefabParentObject: {fileID: 498576, guid: 27e0846b04d769445abf1b60f0801772, type: 2}
@@ -1111,7 +1137,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506888269}
---- !u!4 &514372972 stripped
+--- !u!4 &514372972
 Transform:
   m_PrefabParentObject: {fileID: 448046, guid: 336d4b8428e530d4bbe4d9a92706e74e, type: 2}
   m_PrefabInternal: {fileID: 970573419}

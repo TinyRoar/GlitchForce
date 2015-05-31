@@ -5,7 +5,8 @@ public class Navigation : MonoBehaviour
 {
     public void StartGame()
     {
-        Application.LoadLevel(1);
+        SceneCrossConfig.Instance.CurrentSceneID++;
+        Application.LoadLevel(SceneCrossConfig.Instance.CurrentSceneID);
     }
 
     public void ExitGame()
