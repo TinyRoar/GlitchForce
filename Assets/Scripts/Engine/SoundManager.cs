@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour {
         return source;
     }
 
-    public float Play(string Name, float Volume)
+    public float Play(string Name, float Volume = 1)
     {
         int index = -1;
         for (int i = 0; i < AudioList.Count; i++)
