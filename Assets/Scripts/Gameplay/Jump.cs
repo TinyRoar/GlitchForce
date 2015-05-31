@@ -51,8 +51,11 @@ public class Jump : MonoBehaviour
         //this.jumpStartPos = this.transform.position;
     }
 
-    private void StopJump()
+    public void StopJump()
     {
+        if (player.CurrentState != Config.State.Jumping)
+            return;
+
         player.CurrentState = Config.State.Standing;
         this.GetComponent<Rigidbody2D>().gravityScale = gravity;
         this.player.Hero.Play("JumpLand");
