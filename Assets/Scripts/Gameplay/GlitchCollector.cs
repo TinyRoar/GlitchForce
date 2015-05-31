@@ -48,7 +48,6 @@ public class GlitchCollector : MonoBehaviour {
                     DropWorldGlitch();
                 }
             }
-
             CollectGlitch(other.GetComponent<Glitch>());
         }
     }
